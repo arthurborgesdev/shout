@@ -1,0 +1,27 @@
+<%= form_with(model: yell) do |form| %>
+  <% if yell.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(yell.errors.count, "error") %> prohibited this yell from being saved:</h2>
+
+      <ul>
+        <% yell.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

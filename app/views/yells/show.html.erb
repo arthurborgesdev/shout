@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @yell.user_id %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @yell.text %>
+</p>
+
+<%= link_to 'Edit', edit_yell_path(@yell) %> |
+<%= link_to 'Back', yells_path %>

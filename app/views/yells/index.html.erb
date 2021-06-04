@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Yells</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @yells.each do |yell| %>
+      <tr>
+        <td><%= yell.user_id %></td>
+        <td><%= yell.text %></td>
+        <td><%= link_to 'Show', yell %></td>
+        <td><%= link_to 'Edit', edit_yell_path(yell) %></td>
+        <td><%= link_to 'Destroy', yell, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Yell', new_yell_path %>

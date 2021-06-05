@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :require_login, only: %i[ index show edit update destroy ]
 
   # GET /users or /users.json
   def index
@@ -23,18 +24,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    #respond_to do |format|
-      if @user.save
-        self.login
-        
-        #format.html { redirect_to user_login_url, notice: "User was successfully created." }
-        #format.json { render :show, status: :created, location: @user }
+    respond_to do |format|
+      if @user.save  
+        session[:user_id] = @user.id
+        format.html { redirect_to welcome_url, notice: "User was successfully created." }
+        format.json { render :show, status: :created, location: @user }
       else
-        #flash[:error] = "There was an error in your sign up process!"
-        #format.html { render :new, status: :unprocessable_entity }
-        #format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash[:error] = "There was an error in your sign up process!"
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    #end
+    end
   end
 
   # PATCH/PUT /users/1 or /users/1.json
@@ -57,26 +57,6 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
-  end
-
-  def login
-    user = User.find_by(username: @user.username) 
-    
-    if user
-      session[:current_user_id] = user.id
-      flash[:success] = "You're logged in!"
-      redirect_to root_url
-    else
-      flash[:error] = "This user does not exists!!"
-      redirect_to new_user_url
-    end
-  end
-
-  def logout
-    session.delete(:current_user_id)
-    flash[:notice] = "You have successfully logged out."
-    @_current_user = nil
-    redirect_to root_url
   end
 
   private

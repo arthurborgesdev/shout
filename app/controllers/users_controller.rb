@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save  
         session[:user_id] = @user.id
-        format.html { redirect_to welcome_url, notice: "User was successfully created." }
+        format.html { redirect_to homepage_url, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
         flash[:error] = "There was an error in your sign up process!"

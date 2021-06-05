@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:success] = "You're logged in!"
-      redirect_to root_url
+      redirect_to homepage_url
     else
       flash[:error] = "This user does not exists!!"
       redirect_to login_url

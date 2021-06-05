@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   root "sessions#welcome"
   post "user/login", to: 'users#login'
   post "user/logout", to: 'users#logout'
+
+  get 'homepage', to: 'homepage#index'
 end

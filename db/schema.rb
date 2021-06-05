@@ -42,4 +42,6 @@ ActiveRecord::Schema.define(version: 2021_06_04_194435) do
     t.index ["author_id"], name: "index_yells_on_author_id"
   end
 
+  add_foreign_key "followings", "users", column: "followed_id"
+  add_foreign_key "followings", "users", column: "follower_id"
 end

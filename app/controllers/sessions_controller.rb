@@ -4,9 +4,8 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:username])
-
     if @user
-      sessions[:user_id] = @user.id
+      session[:user_id] = @user.id
       flash[:success] = "You're logged in!"
       redirect_to root_url
     else

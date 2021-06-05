@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_194435) do
+ActiveRecord::Schema.define(version: 2021_06_05_033824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,4 @@ ActiveRecord::Schema.define(version: 2021_06_04_194435) do
     t.index ["author_id"], name: "index_yells_on_author_id"
   end
 
-  add_foreign_key "followings", "users", column: "followed_id"
-  add_foreign_key "followings", "users", column: "follower_id"
 end

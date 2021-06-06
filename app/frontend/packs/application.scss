@@ -1,7 +1,29 @@
 // Just a quick ugly style to see if our CSS works  
-h1 {  
-  text-decoration: underline;  
-}  
+$grey: #4c5f74;
+$near-white: #b4c1ce;
+
+.left-menu-top {
+  background-color: #1b2a3d;
+}
+
+.profile-picture {
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  margin: 15px;
+}
+
+.user-full-name {
+  color: $grey;
+}
+
+.sub-text {
+  color: $near-white;
+}
+
+.left-menu-bottom {
+  background-color: #213246; 
+}
 
 // Import Bootstrap v5  
 @import "~bootstrap/scss/bootstrap";

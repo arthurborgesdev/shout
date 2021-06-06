@@ -1,3 +1,29 @@
-<h1>Shout</h1>
 
-<%= link_to 'New User', new_user_path %>
+<div class="row">
+  <div class="col-2">
+    <section class="left-menu-top">
+      <div class="d-flex">
+        <img src="" class="profile-picture">
+        <span class="user-full-name"><%= @user.full_name %></span>
+      </div>
+      <div>
+        <div>
+          <span class="quantity">184</span></br>
+          <span class="sub-text">Following</span>
+        </div>
+        <div>
+          <span class="quantity">823</span></br>
+          <span class="sub-text">Followers</span>
+        </div>
+      </div>
+    </section>
+    <section class="left-menu-bottom">
+      <div>
+        <i class="fas fa-home"></i>
+        HOME
+      </div>
+    </section>
+  </div>
+  <div class="col-9">
+  </div>
+</div>

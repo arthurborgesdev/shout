@@ -2,14 +2,19 @@
 $grey: #4c5f74;
 $near-white: #b4c1ce;
 
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
 .left-menu-top {
   background-color: #1b2a3d;
 }
 
 .profile-picture {
   background-color: #fff;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   margin: 15px;
 }
 
@@ -18,11 +23,24 @@ $near-white: #b4c1ce;
 }
 
 .sub-text {
-  color: $near-white;
+  color: $grey;
+}
+
+.quantity {
+  color: #fff;
+}
+
+.menu-text, .fa-home {
+  color: $grey;
 }
 
 .left-menu-bottom {
   background-color: #213246; 
+  min-height: 100%;
+}
+
+.menu-item {
+  padding: 10px;
 }
 
 // Import Bootstrap v5  

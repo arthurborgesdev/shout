@@ -11,8 +11,9 @@
         <div class="yell-list">
           <p class="yells-count"><%= @yells.count %>News Yells</p>
           <% @yells.each do |yell| %>
-            <p><%= User.find(yell.author_id).full_name %></p>
-            <p><%= User.find(yell.author_id).username %></p>
+            <p><%= yell.author.photo %></p>
+            <p><%= yell.author.full_name %></p>
+            <p><%= yell.author.username %></p>
             <p><%= yell.text %></p>
           <% end %>  
         </div>
@@ -24,10 +25,10 @@
       </div> 
       <div class="right-content">
         <div class="to-follow-list">
-          <% @user.each do |yell| %>
-            <p><%= User.find(yell.author_id).full_name %></p>
-            <p><%= User.find(yell.author_id).username %></p>
-            <p><%= yell.text %></p>
+          <% Following.not_followed_by(current_user).each do |followed| %>
+            <p><%= User.find(followed.followed_id).photo %></p>
+            <p><%= User.find(followed.followed_id).full_name %></p>
+            <p><%= User.find(followed.followed_id).username %></p>
           <% end %>  
         </div>
       </div>

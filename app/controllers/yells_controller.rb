@@ -1,5 +1,5 @@
 class YellsController < ApplicationController
-  before_action :set_yell, only: %i[ show edit update destroy ]
+  # before_action :set_yell, only: %i[ show edit update destroy ]
 
   # GET /yells or /yells.json
   def index
@@ -21,14 +21,14 @@ class YellsController < ApplicationController
 
   # POST /yells or /yells.json
   def create
-    @yell = Yell.new(yell_params)
+    @yell = Yell.new(text: params["yell"]["text"], author_id: session[:user_id])
 
     respond_to do |format|
       if @yell.save
-        format.html { redirect_to @yell, notice: "Yell was successfully created." }
+        format.html { redirect_to homepage_url, notice: "Yell was successfully created." }
         format.json { render :show, status: :created, location: @yell }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to homepage_url, notice: "There was a problem with your yell!" }
         format.json { render json: @yell.errors, status: :unprocessable_entity }
       end
     end

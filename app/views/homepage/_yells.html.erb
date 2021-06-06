@@ -8,12 +8,29 @@
         <div class="yell-form">
           <%= render "yells_form" %>
         </div>
+        <div class="yell-list">
+          <p class="yells-count"><%= @yells.count %>News Yells</p>
+          <% @yells.each do |yell| %>
+            <p><%= User.find(yell.author_id).full_name %></p>
+            <p><%= User.find(yell.author_id).username %></p>
+            <p><%= yell.text %></p>
+          <% end %>  
+        </div>
       </div>
     </div>
     <div class="col-3">
       <div>
         <span>WHO TO FOLLOW<span>
       </div> 
+      <div class="right-content">
+        <div class="to-follow-list">
+          <% @user.each do |yell| %>
+            <p><%= User.find(yell.author_id).full_name %></p>
+            <p><%= User.find(yell.author_id).username %></p>
+            <p><%= yell.text %></p>
+          <% end %>  
+        </div>
+      </div>
     </div>
   </div>
 </div>

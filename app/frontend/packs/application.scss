@@ -33,7 +33,7 @@ html, body, .row{
   padding-left: 10px;
 }
 
-.menu-text, .fa-home, .fa-user {
+.menu-text, .fa-home, .fa-user, .fa-sign-out-alt {
   color: $grey;
 }
 
@@ -44,6 +44,25 @@ html, body, .row{
 
 .menu-item {
   padding: 10px;
+}
+
+.top-nav {
+  background-color: #4e9ad6;
+  height: 60px;
+}
+
+.fa-bullhorn {
+  color: #fff;
+}
+
+.title {
+  color: #fff;
+  font-weight: 700;
+  font-size: larger;
+}
+
+.nav-menu {
+  border-bottom: 1px solid $near-white;
 }
 
 // Import Bootstrap v5  

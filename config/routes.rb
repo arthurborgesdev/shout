@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   resources :logins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "sessions#welcome"
-  post "user/login", to: 'users#login'
-  post "user/logout", to: 'users#logout'
 
   get 'homepage', to: 'homepage#index'
 end

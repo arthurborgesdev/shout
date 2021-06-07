@@ -1,10 +1,14 @@
 <nav class="d-flex justify-content-between top-nav">
   <div class="d-flex">
-    <i class="fas fa-bullhorn fa-2x"></i>
-    <h1 class="title">Shout</h1>
+    <i class="fas fa-bullhorn fa-2x ms-5 me-3 my-auto"></i>
+    <h1 class="title my-auto">Shout</h1>
   </div>
-  <div>
-    <i class="fas fa-user fa-lg p-2 py-auto"></i>
-    <i class="fas fa-sign-out-alt fa-lg p-2 py-auto"></i>
+  <div class="d-flex">
+    <%= link_to homepage_url, method: :get, class: "p-2 py-auto mx-2 my-auto" do %>
+      <%= fa_icon "user", class: "fa-lg" %>
+    <% end %>
+    <%= link_to "/logout", method: :get, class: "p-2 py-auto mx-3 my-auto" do %>
+      <%= fa_icon "sign-out-alt", class: "fa-lg" %>
+    <% end %>
   </div>
 </nav>

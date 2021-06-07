@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
-  before_action :check_login
-
   def new
+    redirect_to homepage_url if logged_in?
   end
 
   def create
+    redirect_to homepage_url if logged_in?
     @user = User.find_by(username: params[:username])
     if @user
       session[:user_id] = @user.id
@@ -16,21 +16,15 @@ class SessionsController < ApplicationController
     end
   end
 
-  def login
-  end
-
   def welcome
+    redirect_to homepage_url if logged_in?
   end
 
   def destroy
-    session.delete(:user_id)
-    flash[:success] = "You have successfully logged out."
+    if logged_in?
+      session.delete(:user_id)
+      flash[:success] = "You have successfully logged out."
+    end
     redirect_to root_url
-  end
-
-  private
-
-  def check_login
-    redirect_to homepage_url if logged_in?
   end
 end

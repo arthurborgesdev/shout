@@ -2,11 +2,14 @@
   <div class="row g-0">    
     <div class="col-9">
       <div class="nav-menu">
-        <span>YELLS</span>
+        <h2 class="my-2 px-2">YELLS</h2>
       </div>
       <div class="main-content">
-        <div class="yell-form">
-          <%= render "yells_form" %>
+        <div class="yell-form-container">
+          <p class="grey-color">Yell at someone because of something!</p>
+          <div class="yell-form">
+            <%= render "yells_form" %>
+          </div>
         </div>
         <div class="yell-list">
           <p class="yells-count"><%= @yells.count %>News Yells</p>

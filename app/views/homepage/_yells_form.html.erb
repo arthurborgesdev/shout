@@ -10,13 +10,10 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :text %>
-    <%= form.text_field :text %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "YELL!!" %>
+    <%= form.text_field :text, 
+      placeholder: "Type here your yelling and press ENTER!", 
+      class: "yell-field" 
+    %>
   </div>
 <% end %>

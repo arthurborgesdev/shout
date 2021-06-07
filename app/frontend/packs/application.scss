@@ -3,6 +3,7 @@ $grey: #4c5f74;
 $near-white: #b4c1ce;
 $sky-blue: #4e9ad6;
 $light-blue: #7faed1;
+$light-grey: #f4f5f7;
 
 html, body, .row{
   min-height: 100vh;
@@ -112,7 +113,31 @@ html, body, .row{
 }
 
 .nav-menu {
+  height: 50px;
   border-bottom: 1px solid $near-white;
+  color: $sky-blue;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.inner-content {
+  background-color: $light-grey;
+}
+
+.yell-form-container {
+  background-color: #fff;
+  border: 1px solid $near-white;
+  border-radius: 5px;
+  width: auto;
+  padding: 15px;
+  margin: 25px;
+}
+
+.yell-field {
+  border: 1px solid $near-white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 95%;
 }
 
 // Import Bootstrap v5  

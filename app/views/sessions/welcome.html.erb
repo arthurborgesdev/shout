@@ -1,19 +1,32 @@
-<h1>Shout</h1>
-
-<% if logged_in? %>
-
-  <h3>Welcome, <%= current_user.username %></h3>
-
-<% end %>
-
-<p>Express your fellings by yelling at others!</p>
-
-<% if logged_in? %>
-  <%= button_to "Log out", '/logout', method: :get %>
-<% else %>
-  <%= button_to "Login", '/login', method: :get %>
-  <%= button_to "Sign Up", '/users/new', method: :get %>
-<% end %>
-
-
-
+<div class="container-fluid g-0">
+  <div class="row g-0">
+    <div class="col-4">
+    </div>
+    <div class="col-4 d-flex align-items-center">
+      <section class="login-card">
+        <h1 login-title>Shout</h1>
+        
+        <% if logged_in? %>
+        
+          <h3>Welcome, <%= current_user.username %></h3>
+        
+        <% end %>
+        
+        <p>Express your fellings by yelling at others!</p>
+        
+        <% if logged_in? %>
+          <%= button_to "Log out", '/logout', method: :get %>
+        <% else %>
+        <div class="d-flex">
+          <%= button_to "Login", '/login', method: :get, class: "me-2" %>
+          <%= button_to "Sign Up", '/users/new', method: :get %>
+        </div>
+        <% end %>
+      </section>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+</div>
+        
+        

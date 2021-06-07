@@ -1,10 +1,23 @@
 // Just a quick ugly style to see if our CSS works  
 $grey: #4c5f74;
 $near-white: #b4c1ce;
+$sky-blue: #4e9ad6;
 
 html, body, .row{
   min-height: 100vh;
 }
+
+/* Sign Up / Login Page */
+
+.login-card {
+  background-color: $sky-blue;
+}
+
+.login-title {
+  color: #fff;;
+}
+
+/* Homepage */
 
 .left-menu-top {
   background-color: #1b2a3d;
@@ -47,7 +60,7 @@ html, body, .row{
 }
 
 .top-nav {
-  background-color: #4e9ad6;
+  background-color: $sky-blue;
   height: 60px;
 }
 

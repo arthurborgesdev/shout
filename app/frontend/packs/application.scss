@@ -2,6 +2,7 @@
 $grey: #4c5f74;
 $near-white: #b4c1ce;
 $sky-blue: #4e9ad6;
+$light-blue: #7faed1;
 
 html, body, .row{
   min-height: 100vh;
@@ -9,12 +10,18 @@ html, body, .row{
 
 /* Sign Up / Login Page */
 
+.welcome-bg {
+  background: $light-blue;
+}
+
 .login-card {
   background-color: $sky-blue;
 }
 
 .login-title {
-  color: #fff;;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 48px;
 }
 
 /* Homepage */

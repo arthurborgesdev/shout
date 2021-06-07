@@ -1,10 +1,10 @@
-<div class="container-fluid g-0">
+<div class="container-fluid g-0 welcome-bg">
   <div class="row g-0">
     <div class="col-4">
     </div>
     <div class="col-4 d-flex align-items-center">
-      <section class="login-card">
-        <h1 login-title>Shout</h1>
+      <section class="login-card p-5">
+        <h1 class="login-title">Shout</h1>
         
         <% if logged_in? %>
         
@@ -15,11 +15,11 @@
         <p>Express your fellings by yelling at others!</p>
         
         <% if logged_in? %>
-          <%= button_to "Log out", '/logout', method: :get %>
+          <%= button_to "Log out", '/logout', method: :get, class: "btn btn-danger" %>
         <% else %>
         <div class="d-flex">
-          <%= button_to "Login", '/login', method: :get, class: "me-2" %>
-          <%= button_to "Sign Up", '/users/new', method: :get %>
+          <%= button_to "Login", '/login', method: :get, class: "me-2 btn btn-primary" %>
+          <%= button_to "Sign Up", '/users/new', method: :get, class: "btn btn-success" %>
         </div>
         <% end %>
       </section>

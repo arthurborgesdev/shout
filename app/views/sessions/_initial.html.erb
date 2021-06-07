@@ -1,0 +1,20 @@
+<section class="initial-card p-5 rounded">
+  <h1 class="initial-title mb-3">Shout</h1>
+  
+  <% if logged_in? %>
+  
+    <h3>Welcome, <%= current_user.username %></h3>
+  
+  <% end %>
+  
+  <p class="mb-5">Express your fellings by yelling at others!</p>
+  
+  <% if logged_in? %>
+    <%= button_to "Log out", '/logout', method: :get, class: "btn btn-danger" %>
+  <% else %>
+  <div class="d-flex">
+    <%= button_to "Login", '/login', method: :get, class: "me-2 btn btn-primary" %>
+    <%= button_to "Sign Up", '/users/new', method: :get, class: "btn btn-success" %>
+  </div>
+  <% end %>
+</section>

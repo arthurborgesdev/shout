@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    redirect_to homepage_url if logged_in?
     @user = User.new
   end
 

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :check_login
+
   def new
   end
 
@@ -24,5 +26,11 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     flash[:success] = "You have successfully logged out."
     redirect_to root_url
+  end
+
+  private
+
+  def check_login
+    redirect_to homepage_url if logged_in?
   end
 end

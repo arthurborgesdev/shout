@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field my-3">
+  <div class="field my-3 tag-text">
     <%= form.label :username %>
     <%= form.text_field :username %>
   </div>
 
-  <div class="field my-3">
+  <div class="field my-3 tag-text">
     <%= form.label :full_name %>
     <%= form.text_field :full_name %>
   </div>
 
   <div class="actions">
-    <%= form.submit, class: "btn btn-primary" %>
+    <%= form.submit "Create", class: "btn btn-primary" %>
   </div>
 <% end %>

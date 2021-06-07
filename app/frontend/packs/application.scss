@@ -34,6 +34,8 @@ html, body, .row{
 
 /* Homepage */
 
+/* Left Menu */
+
 .left-menu-top {
   background-color: #1b2a3d;
 }
@@ -49,6 +51,16 @@ html, body, .row{
   color: $grey;
 }
 
+.status-box-left {
+  border: 1px solid $grey;
+}
+
+.status-box-right {
+  border-top: 1px solid $grey;
+  border-right: 1px solid $grey;
+  border-bottom: 1px solid $grey;
+}
+
 .sub-text {
   color: $grey;
 }
@@ -57,11 +69,15 @@ html, body, .row{
   color: #fff;
 }
 
-.menu-text {
+.menu-link {
   padding-left: 10px;
 }
 
-.menu-text, .fa-home, .fa-user, .fa-sign-out-alt {
+.menu-link, .fa-home, .fa-user, .fa-sign-out-alt {
+  color: $grey;
+}
+
+.menu-link a:hover {
   color: $grey;
 }
 
@@ -73,6 +89,12 @@ html, body, .row{
 .menu-item {
   padding: 10px;
 }
+
+.grey-color {
+  color: $grey;
+}
+
+/* Top Menu */
 
 .top-nav {
   background-color: $sky-blue;

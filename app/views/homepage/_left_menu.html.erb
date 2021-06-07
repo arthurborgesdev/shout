@@ -1,0 +1,32 @@
+<section class="left-menu-top">
+  <div class="d-flex">
+    <img src="" class="profile-picture">
+    <div class="d-flex align-items-center">
+      <span class="user-full-name"><%= @user.full_name.upcase %></span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="status-box-left w-50 py-1 px-2">
+      <span class="quantity p-5"><%= @followeds_count %></span><br/>
+      <span class="sub-text ps-3">Following</span>
+    </div>
+    <div class="status-box-right w-50 py-1 px-2">
+      <span class="quantity p-5"><%= @followers_count %></span><br/>
+      <span class="sub-text ps-3">Followers</span>
+    </div>
+  </div>
+</section>
+<section class="left-menu-bottom">
+  <div class="menu-item">
+    <i class="fas fa-home"></i>
+    <span class="menu-link">
+      <%= link_to "HOME", homepage_url, class: "text-decoration-none grey-color" %>
+    </span>
+  </div>
+  <div class="menu-item">
+    <i class="fas fa-user"></i>
+    <span class="menu-link">
+       <%= link_to "PROFILE", homepage_url, class: "text-decoration-none grey-color" %>
+    </span>
+  </div>
+</section>

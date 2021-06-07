@@ -1,47 +1,10 @@
 <div class="container-fluid g-0">
   <div class="row g-0">
     <div class="col-2 left-menu">
-      <section class="left-menu-top">
-        <div class="d-flex">
-          <img src="" class="profile-picture">
-          <span class="user-full-name"><%= @user.full_name.upcase %></span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <div>
-            <span class="quantity"><%= @followeds_count %></span><br/>
-            <span class="sub-text">Following</span>
-          </div>
-          <div>
-            <span class="quantity"><%= @followers_count %></span><br/>
-            <span class="sub-text">Followers</span>
-          </div>
-        </div>
-      </section>
-      <section class="left-menu-bottom">
-        <div class="menu-item">
-          <i class="fas fa-home"></i>
-          <span class="menu-text">HOME</span>
-        </div>
-        <div class="menu-item">
-          <i class="fas fa-user"></i>
-          <span class="menu-text">PROFILE</span>
-        </div>
-      </section>
+      <%= render "left_menu" %>
     </div>
     <div class="col-10 right-menu">
-      <nav class="d-flex justify-content-between top-nav">
-        <div>
-          <i class="fas fa-bullhorn fa-2x"></i>
-          <span class="title">Shout</span>
-        </div>
-        <div>
-          <i class="fas fa-user fa-lg p-2 py-auto"></i>
-          <i class="fas fa-sign-out-alt fa-lg p-2 py-auto"></i>
-        </div>
-      </nav>
-      <section>
-        <%= render "yells" %>
-      </section>
+      <%= render "top_menu" %>
     </div>
   </div>
 </div>

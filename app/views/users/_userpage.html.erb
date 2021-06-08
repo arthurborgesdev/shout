@@ -29,8 +29,16 @@
       </div> 
       <div class="right-content text-center">
         <div class="to-follow-list">
+          <div>
+            <h2>FOLLOWED BY</h2>
+          </div>
           <% @user.followeds.includes(:follower).each do |follower| %>
-            
+            <div class='d-flex'>
+              <p class='follow-picture'><%= follower.photo %></p>
+              <div class='d-flex flex-column my-auto'>
+                <p><%= follower.full_name %></p>
+              </div>
+            </div>
           <% end %>  
         </div>
       </div>

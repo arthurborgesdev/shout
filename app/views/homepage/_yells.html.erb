@@ -25,16 +25,19 @@
         </div>
       </div>
     </div>
-    <div class="col-3">
-      <div>
+    <div class="col-3 follow-container">
+      <div class="text-center follow-title">
         <span>WHO TO FOLLOW<span>
       </div> 
-      <div class="right-content">
+      <div class="right-content text-center">
         <div class="to-follow-list">
           <% Following.not_followed_by(current_user).each do |followed| %>
-            <p><%= User.find(followed.followed_id).photo %></p>
-            <p><%= User.find(followed.followed_id).full_name %></p>
-            <p><%= User.find(followed.followed_id).username %></p>
+            <div class="d-flex">
+              <p class="follow-picture"><%= User.find(followed.followed_id).photo %></p>
+              <div class="d-flex flex-column my-auto">
+                <p><%= User.find(followed.followed_id).full_name %></p>
+              </div>
+            </div>
           <% end %>  
         </div>
       </div>

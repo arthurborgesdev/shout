@@ -12,12 +12,15 @@
           </div>
         </div>
         <div class="yell-list">
-          <p class="yells-count"><%= @yells.count %>News Yells</p>
+          <p class="yells-count"><%= @yells.count %> New Yells</p>
           <% @yells.each do |yell| %>
-            <p><%= yell.author.photo %></p>
-            <p><%= yell.author.full_name %></p>
-            <p><%= yell.author.username %></p>
-            <p><%= yell.text %></p>
+            <div class="d-flex">
+              <p class="yell-picture"><%= yell.author.photo %></p>
+              <div class="d-flex flex-column my-auto">
+                <p><%= yell.author.full_name %></p>
+                <p><%= yell.text %></p>
+              </div>
+            </div>
           <% end %>  
         </div>
       </div>

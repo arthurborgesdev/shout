@@ -15,7 +15,9 @@
           <p class="yells-count"><%= @yells.count %> New Yells</p>
           <% @yells.each do |yell| %>
             <div class="d-flex">
-              <p class="yell-picture"><%= yell.author.photo %></p>
+              <%= link_to yell.author do %>
+                <p class="yell-picture"><%= yell.author.photo %></p>
+              <% end %>
               <div class="d-flex flex-column my-auto">
                 <p class="mb-0"><%= yell.author.full_name %></p>
                 <p class="mb-0"><%= yell.text %></p>

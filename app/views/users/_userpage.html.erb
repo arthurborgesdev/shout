@@ -1,37 +1,42 @@
 <div class="container-fluid g-0">
   <div class="row g-0">    
     <div class="col-9">
+      <p class="banner-picture"></p>
       <div class="nav-menu">
-        <span>YELLS</span>
+        <h2 class="my-2 px-2">YELLS</h2>
       </div>
       <div class="main-content">
-        <div class="yell-form">
-          <%= render "yells_form" %>
-        </div>
         <div class="yell-list">
-          <p class="yells-count"><%= @yells.count %>News Yells</p>
-          <% @yells.each do |yell| %>
-            <p><%= yell.author.photo %></p>
-            <p><%= yell.author.full_name %></p>
-            <p><%= yell.author.username %></p>
-            <p><%= yell.text %></p>
+          <p class="yells-count"><%= @user.yells.count %> New Yells</p>
+          <% @user.yells.each do |yell| %>
+            <div class="d-flex">
+              <%= link_to @user do %>
+                <p class="yell-picture"><%= yell.author.photo %></p>
+              <% end %>
+              <div class="d-flex flex-column my-auto">
+                <p class="mb-0"><%= yell.author.full_name %></p>
+                <p class="mb-0"><%= yell.text %></p>
+              </div>
+            </div>
           <% end %>  
         </div>
       </div>
     </div>
-    <div class="col-3">
-      <div>
-        <span>WHO TO FOLLOW<span>
+    <div class="col-3 follow-container">
+      <div class="d-flex">
+        <p class="user-image"></p>
       </div> 
-      <div class="right-content">
+      <div class="right-content text-center">
         <div class="to-follow-list">
           <% Following.not_followed_by(current_user).each do |followed| %>
-            <p><%= User.find(followed.followed_id).photo %></p>
-            <p><%= User.find(followed.followed_id).full_name %></p>
-            <p><%= User.find(followed.followed_id).username %></p>
+            <div class="d-flex">
+              <p class="follow-picture"><%= User.find(followed.followed_id).photo %></p>
+              <div class="d-flex flex-column my-auto">
+                <p><%= User.find(followed.followed_id).full_name %></p>
+              </div>
+            </div>
           <% end %>  
         </div>
       </div>
     </div>
-  </div>
 </div>

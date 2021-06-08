@@ -9,16 +9,15 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @user = User.find(params[:id])
+    @yell = Yell.new
+    @yells = Yell.all
   end
 
   # GET /users/new
   def new
     redirect_to homepage_url if logged_in?
     @user = User.new
-  end
-
-  # GET /users/1/edit
-  def edit
   end
 
   # POST /users or /users.json

@@ -174,5 +174,19 @@ html, body, .row{
   margin: 15px;
 }
 
+/* Userpage */
+
+.banner-picture {
+  height: 250px;
+  background-color: #000;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+}
+
 // Import Bootstrap v5  
 @import "~bootstrap/scss/bootstrap";

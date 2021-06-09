@@ -8,7 +8,7 @@ module UsersHelper
       follower_picture = link_to follower do
         "<p class='follow-picture'>#{follower.photo}</p>".html_safe
       end 
-      
+
       res << "<div class='d-flex'>"
       res <<   "#{follower_picture}"
       res <<   "<div class='d-flex flex-column my-auto'>"
@@ -38,9 +38,16 @@ module UsersHelper
 
   def upload_pictures(user)
     res = ''
+
     if current_user == user
-      res << '<button class="mx-2 upload-picture-button"><i class="fas fa-portrait"></i></button>'
-      res << '<button class="mx-2 upload-banner-button"><i class="fas fa-tv"></i></button>'
+      upload_picture = link_to "" do
+        '<div class="mx-2 my-2 upload-picture-button"><i class="fas fa-portrait fa-lg"></i></div>'.html_safe
+      end
+      upload_banner = link_to "" do
+        '<div class="mx-2 my-2 upload-banner-button"><i class="fas fa-tv fa-lg"></i></div>'.html_safe
+      end
+      res << upload_picture
+      res << upload_banner
     end
     res.html_safe
   end

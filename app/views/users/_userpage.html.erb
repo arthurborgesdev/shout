@@ -41,28 +41,28 @@
           </div>
         </div> 
         <div class="profile-names">
-          <p class="profile-full_name m-1 pb-1 text-center"><%= @user.full_name %></p>
-          <p class="profile-username m-1 text-center"><%= @user.username %></p>
+          <p class="profile-full_name m-1 pb-1 text-center"><%= @user.full_name.upcase %></p>
+          <p class="profile-username m-1 text-center"><%= "@" + @user.username %></p>
         </div>
       </div>  
       <div class="d-flex user-status">
         <div class="status-box text-center">
-          <p class=""><%= @user.yells.count %></p>
-          <p class="">Yells</p>
+          <p class="mb-0"><%= @user.yells.count %></p>
+          <p class="mb-0 status-sub-text">Yells</p>
         </div>
         <div class="status-box text-center">
-          <p class=""><%= @user.followers.count %></p>
-          <p class="">Following</p>
+          <p class="mb-0"><%= @user.followers.count %></p>
+          <p class="mb-0 status-sub-text">Following</p>
         </div>
            
         <div class="status-box text-center">
-          <p class=""><%= @user.followeds.count %></p>
-          <p class="">Followers</p>
+          <p class="mb-0"><%= @user.followeds.count %></p>
+          <p class="mb-0 status-sub-text">Followers</p>
         </div>
       </div>
-      <div class="right-content text-center">
+      <div class="right-content">
         <div class="to-follow-list">
-          <div class="text-center follow-by-title">
+          <div class="ps-1 my-4 followed-by-title">
             <span>FOLLOWED BY<span>
           </div> 
           <% @user.followeds.includes(:follower).each do |f| %>

@@ -23,20 +23,43 @@
       </div>
     </div>
     <div class="col-3 follow-container">
-      <div class="d-flex justify-content-center my-3">
-        <button class="mx-2 follow-button">+</button>
-        <p class="user-image"></p>
-      </div> 
+      <div class="d-flex flex-column">
+        <div class="d-flex justify-content-center my-3">
+          <div class="d-flex align-items-center">
+            <%= interact_buttons(@user) %>
+          </div>
+          <p class="user-image"></p>
+          <div class="d-flex flex-column align-items-center">
+            <button class="mx-2 upload-picture-button"><i class="fas fa-portrait"></i></button>
+            <button class="mx-2 upload-banner-button"><i class="fas fa-tv"></i></button>
+          </div>
+        </div> 
+        <div class="profile-names">
+          <p class="user-full_name text-center"><%= @user.full_name %></p>
+          <p class="user-username text-center"><%= @user.username %></p>
+        </div>
+      </div>  
+      <div class="d-flex user-status">
+        <div>
+          
+        </div>
+        <div>
+
+        </div>
+
+        <div>
+        </div>
+      </div>
       <div class="right-content text-center">
         <div class="to-follow-list">
           <div>
-            <h2>FOLLOWED BY</h2>
+            <h3>FOLLOWED BY</h3>
           </div>
-          <% @user.followeds.includes(:follower).each do |follower| %>
+          <% @user.followeds.includes(:follower).each do |f| %>
             <div class='d-flex'>
-              <p class='follow-picture'><%= follower.photo %></p>
+              <p class='follow-picture'></p>
               <div class='d-flex flex-column my-auto'>
-                <p><%= follower.full_name %></p>
+                <p><%= f.follower.full_name %></p>
               </div>
             </div>
           <% end %>  

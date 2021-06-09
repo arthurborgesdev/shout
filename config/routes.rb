@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   root "sessions#welcome"
 
   get 'homepage', to: 'homepage#index'
+
+  get 'follow/:id', to: 'users#follow', as: 'user_follow'
+  get 'unfollow/:id', to: 'users#unfollow', as: 'user_unfollow'
 end

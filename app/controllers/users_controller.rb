@@ -59,6 +59,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    @user = User.find(params[:id])
+    @follow = current_user.followers.build(followed: @user)
+
+    if @follow.save
+      flash[:success] = "You followed successfully!!"
+    else
+      flash[:alert] = "Something went wrong with your following..."
+    end
+
+    redirect_to user_path(@user)
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    @follow = Following.find_by(followed: @user, follower: current_user)
+
+    unless @follow.nil?
+      @follow.destroy
+      flash[:notice] = "You unfollowed the person sucessfully!"
+    end
+
+    redirect_to user_path(@user)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

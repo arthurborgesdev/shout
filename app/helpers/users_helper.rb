@@ -14,4 +14,21 @@ module UsersHelper
     end
     res.html_safe 
   end
+
+  def user_photo
+  end
+
+  def interact_buttons(user)
+    if current_user.followers.pluck(:followed_id).include?(user.id)
+      link_to user_unfollow_path(user) do
+        '<button class="mx-2 interact-button"><i class="fas fa-minus"></i></button>'.html_safe
+      end
+    elsif user == current_user
+      nil
+    else
+      link_to user_follow_path(user) do
+        '<button class="mx-2 interact-button"><i class="fas fa-plus"></i></button>'.html_safe
+      end
+    end
+  end
 end

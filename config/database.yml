@@ -83,4 +83,4 @@ production:
   <<: *default
   database: shout_production
   username: shout
-  password: <%= ENV['SHOUT_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_URL'] %>

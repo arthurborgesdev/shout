@@ -67,7 +67,9 @@
           </div> 
           <% @user.followeds.includes(:follower).each do |f| %>
             <div class='d-flex'>
-              <p class='follow-picture'></p>
+              <%= link_to f.follower do %>
+                <p class='follow-picture'></p><%= f.follower.photo %></p>
+              <% end %>
               <div class='d-flex flex-column my-auto'>
                 <p><%= f.follower.full_name %></p>
               </div>

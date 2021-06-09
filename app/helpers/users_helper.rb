@@ -5,8 +5,12 @@ module UsersHelper
     followers_list = current_user.followers.pluck(:followed_id)
 
     unless followers_list.include?(follower.id) || current_user.id == follower.id
+      follower_picture = link_to follower do
+        "<p class='follow-picture'>#{follower.photo}</p>".html_safe
+      end 
+      
       res << "<div class='d-flex'>"
-      res <<   "<p class='follow-picture'>#{follower.photo}</p>"
+      res <<   "#{follower_picture}"
       res <<   "<div class='d-flex flex-column my-auto'>"
       res <<     "<p>#{follower.full_name}</p>"
       res <<   "</div>"

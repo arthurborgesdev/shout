@@ -200,5 +200,9 @@ html, body, .row{
   color: $sky-blue;
 }
 
+.profile-full_name {
+  border-bottom: 1px solid $near-white;
+}
+
 // Import Bootstrap v5  
 @import "~bootstrap/scss/bootstrap";

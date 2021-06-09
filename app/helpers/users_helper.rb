@@ -31,4 +31,21 @@ module UsersHelper
       end
     end
   end
+
+  def upload_pictures(user)
+    res = ''
+    if current_user == user
+      res << '<button class="mx-2 upload-picture-button"><i class="fas fa-portrait"></i></button>'
+      res << '<button class="mx-2 upload-banner-button"><i class="fas fa-tv"></i></button>'
+    end
+    res.html_safe
+  end
+
+  def remove_yell(user, yell)
+    if current_user == user 
+      link_to yell_path(yell.id), method: :delete do
+        '<i class="fas fa-trash fa-lg"></i>'.html_safe
+      end
+    end
+  end
 end

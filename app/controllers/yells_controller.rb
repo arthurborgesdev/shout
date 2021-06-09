@@ -21,7 +21,7 @@ class YellsController < ApplicationController
 
   # POST /yells or /yells.json
   def create
-    @yell = Yell.new(text: params["yell"]["text"], author_id: session[:user_id])
+    @yell = Yell.new(text: params["yell"]["text"].upcase, author_id: session[:user_id])
 
     respond_to do |format|
       if @yell.save
@@ -49,11 +49,14 @@ class YellsController < ApplicationController
 
   # DELETE /yells/1 or /yells/1.json
   def destroy
+    @yell = Yell.find(params[:id])
+    @user = @yell.author
+
     @yell.destroy
-    respond_to do |format|
-      format.html { redirect_to yells_url, notice: "Yell was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    
+    flash[:notice] = "You successfuly removed the yell!"
+    
+    redirect_to user_path(@user)
   end
 
   private

@@ -4,7 +4,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    redirect_to homepage_url if logged_in?
+    if logged_in?
+      redirect_to homepage_url 
+      return
+    end
     @user = User.find_by(username: params[:username])
     if @user
       session[:user_id] = @user.id

@@ -9,13 +9,20 @@
         <div class="yell-list">
           <p class="yells-count"><%= @user.yells.count %> New Yells</p>
           <% @user.yells.each do |yell| %>
-            <div class="d-flex">
-              <%= link_to @user do %>
-                <p class="yell-picture"><%= yell.author.photo %></p>
-              <% end %>
-              <div class="d-flex flex-column my-auto">
-                <p class="mb-0"><%= yell.author.full_name %></p>
-                <p class="mb-0"><%= yell.text %></p>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div>
+                  <%= link_to @user do %>
+                    <p class="yell-picture"><%= yell.author.photo %></p>
+                  <% end %>
+                </div>
+                <div class="d-flex flex-column my-auto">
+                  <p class="mb-0"><%= yell.author.full_name %></p>
+                  <p class="mb-0"><%= yell.text %></p>
+                </div>
+              </div>
+              <div class="my-auto">
+                <%= remove_yell(@user, yell) %>
               </div>
             </div>
           <% end %>  
@@ -30,8 +37,7 @@
           </div>
           <p class="user-image"></p>
           <div class="d-flex flex-column align-items-center">
-            <button class="mx-2 upload-picture-button"><i class="fas fa-portrait"></i></button>
-            <button class="mx-2 upload-banner-button"><i class="fas fa-tv"></i></button>
+            <%= upload_pictures(@user) %>
           </div>
         </div> 
         <div class="profile-names">

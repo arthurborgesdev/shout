@@ -165,7 +165,7 @@ html, body, .row{
   border-left: 1px solid $near-white;
 }
 
-.follow-title {
+.follow-title, .followed-by-title {
   border-bottom: 1px solid $near-white;
   margin: 15px;
   padding-bottom: 17px;
@@ -202,6 +202,11 @@ html, body, .row{
 
 .profile-full_name {
   border-bottom: 1px solid $near-white;
+}
+
+.status-box {
+  border: 1px solid $grey;
+  width: 100%;
 }
 
 // Import Bootstrap v5  

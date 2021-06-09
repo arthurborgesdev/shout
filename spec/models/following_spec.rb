@@ -1,5 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Following, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "makes one user follow another" do
+    user1 = User.create(full_name: "Arthur Borges", username: "arthurborges")
+    user2 = User.create(full_name: "Ariel", username: "ariel")
+
+    user1.followers.create(followed: user2)
+    expect { user1.followers.create(followed: user2) }.to change { Following.count }.by(1)
+  end
+
+  it "successfully unfollow a user" do
+    user1 = User.create(full_name: "Arthur Borges", username: "arthurborges")
+    user2 = User.create(full_name: "Ariel", username: "ariel")
+
+    follow = user1.followers.create(followed: user2)
+    expect { follow.destroy }.to change { Following.count }.by(-1)
+  end
 end

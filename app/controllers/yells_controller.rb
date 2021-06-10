@@ -1,6 +1,4 @@
 class YellsController < ApplicationController
-  # before_action :set_yell, only: %i[ show edit update destroy ]
-
   # GET /yells or /yells.json
   def index
     @yells = Yell.all

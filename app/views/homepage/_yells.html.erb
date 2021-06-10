@@ -16,7 +16,7 @@
           <% @yells.each do |yell| %>
             <div class="d-flex">
               <%= link_to yell.author do %>
-                <p class="yell-picture"><%= yell.author.photo %></p>
+                <%= yell_author_photo(yell) %>
               <% end %>
               <div class="d-flex flex-column my-auto">
                 <p class="mb-0"><%= yell.author.full_name %></p>

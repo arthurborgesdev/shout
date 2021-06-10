@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Acknowledgements
+
+Default Cover Image by Jason Rosewell on Unsplash 
+Default Photo by Colton Sturgeon on Unsplash
+  

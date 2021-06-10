@@ -36,6 +36,46 @@ module UsersHelper
     end
   end
 
+  def profile_picture(user)
+    if user.photo.file.nil?
+      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      "<img src='#{img}' class='profile-picture'>".html_safe
+    else
+      img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
+      "<img src='#{img}' alt='' class='profile-picture'>".html_safe
+    end
+  end
+
+  def user_photo(user)
+    if user.photo.file.nil?
+      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      "<img src='#{img}' class='yell-picture'>".html_safe
+    else
+      img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
+      "<img src='#{img}' alt='' class='yell-picture'>".html_safe
+    end
+  end
+
+  def yell_author_photo(yell)
+    if yell.author.photo.file.nil?
+      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      "<img src='#{img}' class='yell-picture'>".html_safe
+    else
+      img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
+      "<img src='#{img}' alt='' class='yell-picture'>".html_safe
+    end
+  end
+
+  def cover_image(user)
+    if user.cover_image.file.nil?
+      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353255/shout/jason-rosewell-ASKeuOZqhYU-unsplash_bszgzr.jpg"
+      "<img src='#{img}' class='cover-image'>".html_safe
+    else
+      img = Cloudinary::Utils.cloudinary_url(user.cover_image.filename, fetch_format: 'auto', quality: 'auto')
+      "<img src='#{img}' alt='' class='cover-image'>".html_safe
+    end
+  end
+
   def upload_photo(user)
     res = ''
 

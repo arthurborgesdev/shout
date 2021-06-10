@@ -3,8 +3,8 @@ class CreateUsers < ActiveRecord::Migration[6.1]
     create_table :users do |t|
       t.string :username
       t.string :full_name
-      t.binary :photo
-      t.binary :cover_image
+      t.text :photo
+      t.text :cover_image
 
       t.timestamps
     end

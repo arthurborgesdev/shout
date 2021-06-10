@@ -58,11 +58,6 @@ class YellsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_yell
-      @yell = Yell.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def yell_params
       params.require(:yell).permit(:user_id, :text)

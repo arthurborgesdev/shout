@@ -1,6 +1,6 @@
 <section class="left-menu-top">
   <div class="d-flex">
-    <%= profile_picture(@user) %>
+    <%= profile_picture(current_user) %>
     <div class="d-flex align-items-center">
       <span class="user-full-name"><%= current_user.full_name.upcase %></span>
     </div>

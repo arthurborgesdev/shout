@@ -6,7 +6,7 @@ module UsersHelper
 
     unless followers_list.include?(follower.id) || current_user.id == follower.id
       follower_picture = link_to follower do
-        "<p class='follow-picture'>#{follower.photo}</p>".html_safe
+        follow_picture(follower)
       end 
 
       res << "<div class='d-flex'>"
@@ -84,6 +84,16 @@ module UsersHelper
     else
       img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
       "<img src='#{img}' alt='' class='user-image'>".html_safe
+    end
+  end
+
+  def follow_picture(user)
+    if user.photo.file.nil?
+      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      "<img src='#{img}' class='follow-picture'>".html_safe
+    else
+      img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
+      "<img src='#{img}' alt='' class='follow-picture'>".html_safe
     end
   end
 

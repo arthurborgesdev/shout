@@ -1,1 +1,1 @@
-json.array! @yells, partial: "yells/yell", as: :yell
+json.array! @yells, partial: 'yells/yell', as: :yell

@@ -7,19 +7,16 @@ module UsersHelper
     unless followers_list.include?(follower.id) || current_user.id == follower.id
       follower_picture = link_to follower do
         follow_picture(follower)
-      end 
+      end
 
       res << "<div class='d-flex'>"
-      res <<   "#{follower_picture}"
-      res <<   "<div class='d-flex flex-column my-auto'>"
-      res <<     "<p>#{follower.full_name}</p>"
-      res <<   "</div>"
-      res << "</div>"
+      res << follower_picture.to_s
+      res << "<div class='d-flex flex-column my-auto'>"
+      res << "<p>#{follower.full_name}</p>"
+      res << '</div>'
+      res << '</div>'
     end
-    res.html_safe 
-  end
-
-  def user_photo
+    res.html_safe
   end
 
   def interact_buttons(user)
@@ -38,7 +35,7 @@ module UsersHelper
 
   def profile_picture(user)
     if user.photo.file.nil?
-      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      img = 'https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg'
       "<img src='#{img}' class='profile-picture'>".html_safe
     else
       img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
@@ -48,7 +45,7 @@ module UsersHelper
 
   def user_photo(user)
     if user.photo.file.nil?
-      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      img = 'https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg'
       "<img src='#{img}' class='yell-picture'>".html_safe
     else
       img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
@@ -59,7 +56,7 @@ module UsersHelper
   def yell_author_photo(yell)
     user = yell.author
     if user.photo.file.nil?
-      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      img = 'https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg'
       "<img src='#{img}' class='yell-picture'>".html_safe
     else
       img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
@@ -69,7 +66,7 @@ module UsersHelper
 
   def cover_image(user)
     if user.cover_image.file.nil?
-      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353255/shout/jason-rosewell-ASKeuOZqhYU-unsplash_bszgzr.jpg"
+      img = 'https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353255/shout/jason-rosewell-ASKeuOZqhYU-unsplash_bszgzr.jpg'
       "<img src='#{img}' class='cover-image'>".html_safe
     else
       img = Cloudinary::Utils.cloudinary_url(user.cover_image.filename, fetch_format: 'auto', quality: 'auto')
@@ -79,7 +76,7 @@ module UsersHelper
 
   def user_image(user)
     if user.photo.file.nil?
-      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      img = 'https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg'
       "<img src='#{img}' class='user-image'>".html_safe
     else
       img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
@@ -89,7 +86,7 @@ module UsersHelper
 
   def follow_picture(user)
     if user.photo.file.nil?
-      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      img = 'https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg'
       "<img src='#{img}' class='follow-picture'>".html_safe
     else
       img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
@@ -98,10 +95,10 @@ module UsersHelper
   end
 
   def remove_yell(user, yell)
-    if current_user == user 
-      link_to yell_path(yell.id), method: :delete do
-        '<i class="fas fa-trash fa-lg"></i>'.html_safe
-      end
+    return unless current_user == user
+
+    link_to yell_path(yell.id), method: :delete do
+      '<i class="fas fa-trash fa-lg"></i>'.html_safe
     end
   end
 end

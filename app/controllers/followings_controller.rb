@@ -1,5 +1,5 @@
 class FollowingsController < ApplicationController
-  before_action :set_following, only: %i[ show edit update destroy ]
+  before_action :set_following, only: %i[show edit update destroy]
 
   # GET /followings or /followings.json
   def index
@@ -7,8 +7,7 @@ class FollowingsController < ApplicationController
   end
 
   # GET /followings/1 or /followings/1.json
-  def show
-  end
+  def show; end
 
   # GET /followings/new
   def new
@@ -16,8 +15,7 @@ class FollowingsController < ApplicationController
   end
 
   # GET /followings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /followings or /followings.json
   def create
@@ -25,7 +23,7 @@ class FollowingsController < ApplicationController
 
     respond_to do |format|
       if @following.save
-        format.html { redirect_to @following, notice: "Following was successfully created." }
+        format.html { redirect_to @following, notice: 'Following was successfully created.' }
         format.json { render :show, status: :created, location: @following }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class FollowingsController < ApplicationController
   def update
     respond_to do |format|
       if @following.update(following_params)
-        format.html { redirect_to @following, notice: "Following was successfully updated." }
+        format.html { redirect_to @following, notice: 'Following was successfully updated.' }
         format.json { render :show, status: :ok, location: @following }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +49,20 @@ class FollowingsController < ApplicationController
   def destroy
     @following.destroy
     respond_to do |format|
-      format.html { redirect_to followings_url, notice: "Following was successfully destroyed." }
+      format.html { redirect_to followings_url, notice: 'Following was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_following
-      @following = Following.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def following_params
-      params.fetch(:following, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_following
+    @following = Following.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def following_params
+    params.fetch(:following, {})
+  end
 end

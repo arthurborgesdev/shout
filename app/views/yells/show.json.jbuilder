@@ -1,1 +1,1 @@
-json.partial! "yells/yell", yell: @yell
+json.partial! 'yells/yell', yell: @yell

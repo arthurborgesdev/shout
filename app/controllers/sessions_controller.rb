@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     if logged_in?
-      redirect_to homepage_url 
+      redirect_to homepage_url
       return
     end
     @user = User.find_by(username: params[:username])
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       flash[:success] = "You're logged in!"
       redirect_to homepage_url
     else
-      flash[:error] = "This user does not exists!!"
+      flash[:error] = 'This user does not exists!!'
       redirect_to login_url
     end
   end
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   def destroy
     if logged_in?
       session.delete(:user_id)
-      flash[:success] = "You have successfully logged out."
+      flash[:success] = 'You have successfully logged out.'
     end
     redirect_to root_url
   end

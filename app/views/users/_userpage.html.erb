@@ -35,17 +35,24 @@
           <div class="d-flex align-items-center">
             <%= interact_buttons(@user) %>
           </div>
-          <p class="user-image"></p>
-          <div class="d-flex flex-column align-items-center my-auto mx-4">
+          <%= user_image(@user) %>
+        </div> 
+        <div class="d-flex flex-column align-items-center my-auto mx-4">
           <% if current_user == @user %>  
             <%= form_for(:user, method: :put, multipart: true) do |f| %>
-              <% f.label :cover_image %>
-              <% f.hidden_field :cover_image_cache %>
-              <% f.file_field :cover_image, { onchange: 'this.form.submit();' } %>
+              <%= f.label :photo, "Change Photo", class: "sky-blue" %>
+              <%= f.hidden_field :photo_cache %>
+              <%= f.file_field :photo, { onchange: 'this.form.submit();' } %>
             <% end %>
           <% end %>
-          </div>
-        </div> 
+          <% if current_user == @user %>  
+            <%= form_for(:user, method: :put, multipart: true) do |f| %>
+              <%= f.label :cover_image, "Change Cover", class: "sky-blue" %>
+              <%= f.hidden_field :cover_image_cache %>
+              <%= f.file_field :cover_image, { onchange: 'this.form.submit();' } %>
+            <% end %>
+          <% end %>
+        </div>
         <div class="profile-names">
           <p class="profile-full_name m-1 pb-1 text-center"><%= @user.full_name.upcase %></p>
           <p class="profile-username m-1 text-center"><%= "@" + @user.username %></p>

@@ -57,7 +57,8 @@ module UsersHelper
   end
 
   def yell_author_photo(yell)
-    if yell.author.photo.file.nil?
+    user = yell.author
+    if user.photo.file.nil?
       img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
       "<img src='#{img}' class='yell-picture'>".html_safe
     else
@@ -76,30 +77,14 @@ module UsersHelper
     end
   end
 
-  def upload_photo(user)
-    res = ''
-
-    if current_user == user
-      upload_picture = link_to "" do
-        '<div class="mx-2 my-2 upload-picture-button"><i class="fas fa-portrait fa-lg"></i></div>'.html_safe
-      end
-      res << upload_picture
+  def user_image(user)
+    if user.photo.file.nil?
+      img = "https://res.cloudinary.com/hupxp3pqa/image/upload/v1623353261/shout/colton-sturgeon-odKeTFsBDgE-unsplash_aoxjzy.jpg"
+      "<img src='#{img}' class='user-image'>".html_safe
+    else
+      img = Cloudinary::Utils.cloudinary_url(user.photo.filename, fetch_format: 'auto', quality: 'auto')
+      "<img src='#{img}' alt='' class='user-image'>".html_safe
     end
-    res.html_safe
-  end
-
-  def upload_cover(user)
-    res = ''
-
-    if current_user == user
-      res << "<%= form_for(modle :user, method: put, multipart: true) do |f| %>"
-      res << "<% f.label :cover_image %>"
-      res << "<% f.hidden_field :cover_image_cache %>"
-      res << "<% f.file_field :cover_image, { onchange: 'this.form.submit();' } %>"
-      res << "<% end %>"
-      # '<div class="mx-2 my-2 upload-cover-button"><i class="fas fa-tv fa-lg"></i></div>'.html_safe
-    end
-    res.html_safe
   end
 
   def remove_yell(user, yell)

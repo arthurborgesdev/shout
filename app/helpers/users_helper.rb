@@ -36,18 +36,28 @@ module UsersHelper
     end
   end
 
-  def upload_pictures(user)
+  def upload_photo(user)
     res = ''
 
     if current_user == user
       upload_picture = link_to "" do
         '<div class="mx-2 my-2 upload-picture-button"><i class="fas fa-portrait fa-lg"></i></div>'.html_safe
       end
-      upload_banner = link_to "" do
-        '<div class="mx-2 my-2 upload-banner-button"><i class="fas fa-tv fa-lg"></i></div>'.html_safe
-      end
       res << upload_picture
-      res << upload_banner
+    end
+    res.html_safe
+  end
+
+  def upload_cover(user)
+    res = ''
+
+    if current_user == user
+      res << "<%= form_for(modle :user, method: put, multipart: true) do |f| %>"
+      res << "<% f.label :cover_image %>"
+      res << "<% f.hidden_field :cover_image_cache %>"
+      res << "<% f.file_field :cover_image, { onchange: 'this.form.submit();' } %>"
+      res << "<% end %>"
+      # '<div class="mx-2 my-2 upload-cover-button"><i class="fas fa-tv fa-lg"></i></div>'.html_safe
     end
     res.html_safe
   end

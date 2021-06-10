@@ -1,7 +1,7 @@
 <div class="container-fluid g-0">
   <div class="row g-0">    
     <div class="col-9">
-      <p class="banner-picture"></p>
+      <p class="cover-picture"></p>
       <div class="nav-menu">
         <h2 class="my-2 px-2">YELLS</h2>
       </div>
@@ -37,8 +37,13 @@
           </div>
           <p class="user-image"></p>
           <div class="d-flex flex-column align-items-center my-auto mx-4">
-            <%= upload_photo(@user) %>
-            <%= upload_banner(@user) %>
+          <% if current_user == @user %>  
+            <%= form_for(:user, method: :put, multipart: true) do |f| %>
+              <% f.label :cover_image %>
+              <% f.hidden_field :cover_image_cache %>
+              <% f.file_field :cover_image, { onchange: 'this.form.submit();' } %>
+            <% end %>
+          <% end %>
           </div>
         </div> 
         <div class="profile-names">

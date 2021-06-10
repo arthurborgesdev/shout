@@ -37,7 +37,7 @@
           </div>
           <%= user_image(@user) %>
         </div> 
-        <div class="d-flex flex-column align-items-center my-auto mx-4">
+        <div class="d-flex flex-column my-auto mx-4">
           <% if current_user == @user %>  
             <%= form_for(:user, method: :put, multipart: true) do |f| %>
               <%= f.label :photo, "Change Photo", class: "sky-blue" %>

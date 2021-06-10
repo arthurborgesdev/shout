@@ -1,4 +1,4 @@
-// Just a quick ugly style to see if our CSS works  
+// Just a quick ugly style to see if our CSS works
 $grey: #4c5f74;
 $near-white: #b4c1ce;
 $sky-blue: #4e9ad6;
@@ -6,7 +6,9 @@ $light-blue: #7faed1;
 $light-grey: #f4f5f7;
 $near-grey: #bdbec0;
 
-html, body, .row{
+html,
+body,
+.row {
   min-height: 100vh;
 }
 
@@ -75,7 +77,10 @@ html, body, .row{
   padding-left: 10px;
 }
 
-.menu-link, .fa-home, .fa-user, .fa-sign-out-alt {
+.menu-link,
+.fa-home,
+.fa-user,
+.fa-sign-out-alt {
   color: $grey;
 }
 
@@ -84,7 +89,7 @@ html, body, .row{
 }
 
 .left-menu-bottom {
-  background-color: #213246; 
+  background-color: #213246;
   min-height: 100%;
 }
 
@@ -127,7 +132,8 @@ html, body, .row{
   background-color: $light-grey;
 }
 
-.yell-form-container, .yell-list {
+.yell-form-container,
+.yell-list {
   background-color: #fff;
   border: 1px solid $near-white;
   border-radius: 5px;
@@ -166,7 +172,8 @@ html, body, .row{
   border-left: 1px solid $near-white;
 }
 
-.follow-title, .followed-by-title {
+.follow-title,
+.followed-by-title {
   border-bottom: 1px solid $near-white;
   margin: 15px;
   padding-bottom: 17px;
@@ -199,7 +206,9 @@ html, body, .row{
   height: 10px;
 }
 
-.fa-trash, .fa-portrait, .fa-tv {
+.fa-trash,
+.fa-portrait,
+.fa-tv {
   color: $sky-blue;
 }
 
@@ -216,5 +225,5 @@ html, body, .row{
   color: $near-grey;
 }
 
-// Import Bootstrap v5  
+// Import Bootstrap v5
 @import "~bootstrap/scss/bootstrap";

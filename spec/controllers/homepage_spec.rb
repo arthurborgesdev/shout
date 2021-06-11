@@ -4,8 +4,8 @@ require_relative '../support.rb'
 RSpec.describe HomepageController do
   before(:all) { @user = User.create(username: "arthurborges", full_name: "Arthur Borges") }
 
-  describe "GET index" do
-    it "renders the index template" do
+  describe "GET welcome" do
+    it "redirect to the welcome template" do
       log_in(@user)
 
       get :index

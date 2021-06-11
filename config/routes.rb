@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   get 'welcome', to: 'sessions#welcome'
-  resources :followings
-  resources :yells
-  resources :users
-  resources :logins
+  resources :yells, except: [:show, :edit, :update]
+  resources :users, except: [:index, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "sessions#welcome"
 

@@ -58,6 +58,9 @@ If the project is not merged into main (it is in the mvp-development phase)
 - Ruby 3.x
 - Ruby on Rails version 6.x
 - Postgres installed (make sure to create databases `shout_development` and `shout_test`)
+- Create a file named `.env` in the root of the project with the Cloudinary API KEYS:
+  - CLOUDINARY_API_KEY='...'
+  - CLOUDINARY_API_SECRET='...'
 
 ### Setup
 

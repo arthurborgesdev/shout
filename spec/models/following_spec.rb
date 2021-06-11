@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Following, type: :model do
   it 'makes one user follow another' do
-    user1 = User.create(full_name: 'Arthur Borges', username: 'arthurborges')
+    user1 = User.create(full_name: 'Andressa Borges', username: 'andressaborges')
     user2 = User.create(full_name: 'Ariel', username: 'ariel')
 
     user1.followers.create(followed: user2)
@@ -10,7 +10,7 @@ RSpec.describe Following, type: :model do
   end
 
   it 'successfully unfollow a user' do
-    user1 = User.create(full_name: 'Arthur Borges', username: 'arthurborges')
+    user1 = User.create(full_name: 'Andressa Borges', username: 'andressaborges')
     user2 = User.create(full_name: 'Ariel', username: 'ariel')
 
     follow = user1.followers.create(followed: user2)

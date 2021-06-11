@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Yell, type: :model do
   it 'accepts a valid message' do
-    user1 = User.create(username: 'arthurborges', full_name: 'Arthur Borges')
+    user1 = User.create(username: 'andressaborges', full_name: 'Andressa Borges')
     yell1 = user1.yells.create(text: "HELP! I'M OVERWHELMED!!")
     expect(yell1.valid?).to eq(true)
   end
@@ -19,7 +19,7 @@ RSpec.describe Yell, type: :model do
 
   it 'destroys a yell successfully' do
     DatabaseCleaner.clean
-    user1 = User.create(username: 'arthurborges', full_name: 'Arthur Borges')
+    user1 = User.create(username: 'andressaborges', full_name: 'Andressa Borges')
     yell1 = user1.yells.create(text: "I'M GETTING OUTTA HERE!")
 
     expect { yell1.destroy }.to change { Yell.count }.by(-1)

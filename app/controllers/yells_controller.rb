@@ -1,21 +1,16 @@
 class YellsController < ApplicationController
-  # GET /yells or /yells.json
   def index
     @yells = Yell.all
   end
 
-  # GET /yells/1 or /yells/1.json
   def show; end
 
-  # GET /yells/new
   def new
     @yell = Yell.new
   end
 
-  # GET /yells/1/edit
   def edit; end
 
-  # POST /yells or /yells.json
   def create
     @yell = Yell.new(text: params['yell']['text'].upcase, author_id: session[:user_id])
 
@@ -30,7 +25,6 @@ class YellsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /yells/1 or /yells/1.json
   def update
     respond_to do |format|
       if @yell.update(yell_params)
@@ -43,7 +37,6 @@ class YellsController < ApplicationController
     end
   end
 
-  # DELETE /yells/1 or /yells/1.json
   def destroy
     @yell = Yell.find(params[:id])
     @user = @yell.author
@@ -57,7 +50,6 @@ class YellsController < ApplicationController
 
   private
 
-  # Only allow a list of trusted parameters through.
   def yell_params
     params.require(:yell).permit(:user_id, :text)
   end

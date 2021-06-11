@@ -41,8 +41,16 @@ To get a local copy up and running follow these simple example steps:
 
 `git clone git@github.com:arthurborgesdev/shout.git`
 
-- Change to mvp-development branch (create one if it not exists - this step is not needed if the feature branch was already merged) 
-- `git pull origin mvp-development` 
+Now there are two main possibilities:
+
+If the project is merged into main:
+
+- Nothing to do, just proceed to the next step, `Prerequisites`
+
+If the project is not merged into main (it is in the mvp-development phase)
+
+- Create mvp-development branch by typing on a Terminal `git checkout -b mvp-development`
+- Pull the project to this local branch with the command `git pull origin mvp-development` 
 - Ok, now you have the project locally
 
 ### Prerequisites
@@ -57,6 +65,14 @@ To get a local copy up and running follow these simple example steps:
 - Run `yarn` to install the JS dependencies
 - Run `rails db:migrate` to migrate the database
 
+It may be necessary to run:
+
+`rails webpacker:install`
+`rails assets:clobber`  
+`rails webpacker:compile`
+
+To install webpacker and configure the pipeline of assets (Bootstrap + my stylesheet)   
+
 ### Usage
 
 - On a separate terminal, run `rails s` to start the server
@@ -66,11 +82,15 @@ To get a local copy up and running follow these simple example steps:
 
 To run the tests, run `rspec` or `bundle exec rspec` on a Terminal shell.
 
-### Deployment
+## Extra feature
 
-The project was deployed to Heroku, and it's live on the link commented above. To deploy to Heroku yourself, follow this tutorial:
+The extra feature of this app is the possibility to remove yells on the userpage of the current logged user. Simple click the blue trash icon!
 
-[Deploy Rails 6 in Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails6)
+## Bootstrap and styles
+
+On this project I installed bootstrap with webpacker (that's why my styles are in `app/frontend/packs/application.scss`)
+
+For instructions to how I set it up, please visit [this link](https://bootrails.com/blog/rails-bootstrap-tutorial)
 
 
 ## Authors

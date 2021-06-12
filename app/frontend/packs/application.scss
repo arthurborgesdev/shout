@@ -1,0 +1,230 @@
+// Just a quick ugly style to see if our CSS works
+$grey: #4c5f74;
+$near-white: #b4c1ce;
+$sky-blue: #4e9ad6;
+$light-blue: #7faed1;
+$light-grey: #f4f5f7;
+$near-grey: #bdbec0;
+
+html,
+body,
+.row {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Sign Up / Login Page */
+
+.welcome-bg {
+  background: $light-blue;
+}
+
+.initial-card {
+  background-color: $sky-blue;
+}
+
+.initial-card p {
+  color: #fff;
+}
+
+.initial-title {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 48px;
+}
+
+.tag-text {
+  color: #fff;
+}
+
+/* Homepage */
+
+/* Left Menu */
+
+.left-menu-top {
+  background-color: #1b2a3d;
+}
+
+.profile-picture {
+  background-color: #fff;
+  width: 75px;
+  height: 75px;
+  margin: 15px;
+}
+
+.user-full-name {
+  color: $grey;
+}
+
+.status-box-left {
+  border: 1px solid $grey;
+}
+
+.status-box-right {
+  border-top: 1px solid $grey;
+  border-right: 1px solid $grey;
+  border-bottom: 1px solid $grey;
+}
+
+.sub-text {
+  color: $grey;
+}
+
+.quantity {
+  color: #fff;
+}
+
+.menu-link {
+  padding-left: 10px;
+}
+
+.menu-link,
+.fa-home,
+.fa-user,
+.fa-sign-out-alt {
+  color: $grey;
+}
+
+.menu-link a:hover {
+  color: $grey;
+}
+
+.left-menu-bottom {
+  background-color: #213246;
+  min-height: 100%;
+}
+
+.menu-item {
+  padding: 10px;
+}
+
+.grey-color {
+  color: $grey;
+}
+
+/* Top Menu */
+
+.top-nav {
+  background-color: $sky-blue;
+  height: 105px;
+}
+
+.fa-bullhorn {
+  color: #fff;
+}
+
+.title {
+  color: #fff;
+  font-weight: bolder;
+  font-size: 36px;
+}
+
+.nav-menu {
+  height: 50px;
+  border-bottom: 1px solid $near-white;
+  color: $sky-blue;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Yell container */
+
+.inner-content {
+  background-color: $light-grey;
+}
+
+.yell-form-container,
+.yell-list {
+  background-color: #fff;
+  border: 1px solid $near-white;
+  border-radius: 5px;
+  width: auto;
+  padding: 15px;
+  margin: 25px;
+}
+
+.yell-field {
+  border: 1px solid $near-white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 95%;
+}
+
+.yells-count {
+  padding-bottom: 5px;
+  border-bottom: 1px solid $near-white;
+  color: $grey;
+}
+
+.yell-picture {
+  background-color: #000;
+  width: 60px;
+  height: 60px;
+  margin: 15px;
+}
+
+.sky-blue {
+  color: $sky-blue;
+}
+
+/* Who to follow content */
+
+.follow-container {
+  border-left: 1px solid $near-white;
+}
+
+.follow-title,
+.followed-by-title {
+  border-bottom: 1px solid $near-white;
+  margin: 15px;
+  padding-bottom: 17px;
+  color: $near-grey;
+}
+
+.follow-picture {
+  background-color: #000;
+  width: 50px;
+  height: 50px;
+  margin: 15px;
+}
+
+/* Userpage */
+
+.cover-image {
+  height: 250px;
+  width: 100%;
+  background-color: #000;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  background-color: #000;
+}
+
+.follow-button {
+  height: 10px;
+}
+
+.fa-trash,
+.fa-portrait,
+.fa-tv {
+  color: $sky-blue;
+}
+
+.profile-full_name {
+  border-bottom: 1px solid $near-white;
+}
+
+.status-box {
+  border: 1px solid $near-grey;
+  width: 100%;
+}
+
+.status-sub-text {
+  color: $near-grey;
+}
+
+// Import Bootstrap v5
+@import "~bootstrap/scss/bootstrap";

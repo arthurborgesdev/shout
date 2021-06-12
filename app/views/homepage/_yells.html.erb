@@ -1,0 +1,43 @@
+<div class="container-fluid g-0">
+  <div class="row g-0">    
+    <div class="col-9">
+      <div class="nav-menu">
+        <h2 class="my-2 px-2">YELLS</h2>
+      </div>
+      <div class="main-content">
+        <div class="yell-form-container">
+          <p class="grey-color">Yell at someone because of something!</p>
+          <div class="yell-form">
+            <%= render "yells_form" %>
+          </div>
+        </div>
+        <div class="yell-list">
+          <p class="yells-count sky-blue"><%= @yells.count %> New Yells</p>
+          <% @yells.each do |yell| %>
+            <div class="d-flex">
+              <%= link_to yell.author do %>
+                <%= yell_author_photo(yell) %>
+              <% end %>
+              <div class="d-flex flex-column my-auto">
+                <p class="mb-0"><%= yell.author.full_name %></p>
+                <p class="mb-0"><%= yell.text %></p>
+              </div>
+            </div>
+          <% end %>  
+        </div>
+      </div>
+    </div>
+    <div class="col-3 follow-container">
+      <div class="ps-1 follow-title">
+        <span>WHO TO FOLLOW<span>
+      </div> 
+      <div class="right-content text-center">
+        <div class="to-follow-list">
+          <% @users.each do |follower| %>
+            <%= who_to_follow_list(follower) %>
+          <% end %>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

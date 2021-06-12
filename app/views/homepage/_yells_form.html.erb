@@ -1,0 +1,19 @@
+<%= form_with model: @yell do |form| %>
+  <% if @yell.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yell.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @yell.errors.each do |error| %>
+          <li><%= @yell.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.text_field :text, 
+      placeholder: "Type here your yelling and press ENTER!", 
+      class: "yell-field" 
+    %>
+  </div>
+<% end %>

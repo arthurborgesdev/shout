@@ -1,0 +1,12 @@
+development:
+  cloud_name: 'hupxp3pqa'
+  api_key: <%= ENV["CLOUDINARY_API_KEY"] %>
+  api_secret: <%= ENV["CLOUDINARY_API_SECRET"] %>
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: 'hupxp3pqa'
+  api_key: <%= ENV["CLOUDINARY_API_KEY"] %>
+  api_secret: <%= ENV["CLOUDINARY_API_SECRET"] %>
+  enhance_image_tag: true
+  static_file_support: true

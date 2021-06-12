@@ -1,0 +1,95 @@
+<div class="container-fluid g-0">
+  <div class="row g-0">    
+    <div class="col-9">
+      <%= cover_image(@user) %>
+      <div class="nav-menu">
+        <h2 class="my-2 px-2">YELLS</h2>
+      </div>
+      <div class="main-content">
+        <div class="yell-list">
+          <p class="yells-count"><%= @user.yells.count %> New Yells</p>
+          <% @user.yells.each do |yell| %>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div>
+                  <%= link_to @user do %>
+                    <%= yell_author_photo(yell) %>
+                  <% end %>
+                </div>
+                <div class="d-flex flex-column my-auto">
+                  <p class="mb-0"><%= yell.author.full_name %></p>
+                  <p class="mb-0"><%= yell.text %></p>
+                </div>
+              </div>
+              <div class="my-auto">
+                <%= remove_yell(@user, yell) %>
+              </div>
+            </div>
+          <% end %>  
+        </div>
+      </div>
+    </div>
+    <div class="col-3 follow-container">
+      <div class="d-flex flex-column">
+        <div class="d-flex justify-content-center my-3">
+          <div class="d-flex align-items-center">
+            <%= interact_buttons(@user) %>
+          </div>
+          <%= user_image(@user) %>
+        </div> 
+        <div class="d-flex flex-column my-auto mx-4">
+          <% if current_user == @user %>  
+            <%= form_for(:user, method: :put, multipart: true) do |f| %>
+              <%= f.label :photo, "Change Photo", class: "sky-blue" %>
+              <%= f.hidden_field :photo_cache %>
+              <%= f.file_field :photo, { onchange: 'this.form.submit();' } %>
+            <% end %>
+          <% end %>
+          <% if current_user == @user %>  
+            <%= form_for(:user, method: :put, multipart: true) do |f| %>
+              <%= f.label :cover_image, "Change Cover", class: "sky-blue" %>
+              <%= f.hidden_field :cover_image_cache %>
+              <%= f.file_field :cover_image, { onchange: 'this.form.submit();' } %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="profile-names">
+          <p class="profile-full_name m-1 pb-1 text-center"><%= @user.full_name.upcase %></p>
+          <p class="profile-username m-1 text-center"><%= "@" + @user.username %></p>
+        </div>
+      </div>  
+      <div class="d-flex user-status">
+        <div class="status-box text-center">
+          <p class="mb-0"><%= @user.yells.count %></p>
+          <p class="mb-0 status-sub-text">Yells</p>
+        </div>
+        <div class="status-box text-center">
+          <p class="mb-0"><%= @user.followers.count %></p>
+          <p class="mb-0 status-sub-text">Following</p>
+        </div>
+           
+        <div class="status-box text-center">
+          <p class="mb-0"><%= @user.followeds.count %></p>
+          <p class="mb-0 status-sub-text">Followers</p>
+        </div>
+      </div>
+      <div class="right-content">
+        <div class="to-follow-list">
+          <div class="ps-1 my-4 followed-by-title">
+            <span>FOLLOWED BY<span>
+          </div> 
+          <% @user.followeds.includes(:follower).each do |f| %>
+            <div class='d-flex'>
+              <%= link_to f.follower do %>
+                <%= follow_picture(f.follower) %>
+              <% end %>
+              <div class='d-flex flex-column my-auto'>
+                <p class="mb-0"><%= f.follower.full_name %></p>
+                <p class="mb-0"><%= "@" + f.follower.username %></p>
+              </div>
+            </div>
+          <% end %>  
+        </div>
+      </div>
+    </div>
+</div>

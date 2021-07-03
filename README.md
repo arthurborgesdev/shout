@@ -116,8 +116,14 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- My colleagues
-- My mentor
+- My mentor [@gscarv13](https://github.com/gscarv13)
+- My Partner [@jmontanholi](https://github.com/jmontanholi)
+- My friends
+  - [@fernandorpm](https://github.com/fernandorpm)
+  - [@pountzas](https://github.com/pountzas)
+  - [@carlos-osorio-developer](https://github.com/carlos-osorio-developer)
+  - [@Amalcxc](https://github.com/Amalcxc)
+  - [@Takhmina175](https://github.com/Takhmina175)
 - Default Cover Image by Jason Rosewell on Unsplash 
 - Default Photo by Colton Sturgeon on Unsplash
 
